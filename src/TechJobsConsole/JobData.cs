@@ -15,6 +15,28 @@ namespace TechJobsConsole
             LoadData();
             return AllJobs;
         }
+        //FindbyValue
+
+        public static List<Dictionary<string, string>> FindByValue(string value)
+        {
+            // load data, if not already loaded
+            LoadData();
+
+            List<Dictionary<string, string>> jobsResult = new List<Dictionary<string, string>>();
+
+            foreach (Dictionary<string, string> job in AllJobs)
+            {
+                foreach (string val in job.Values)
+                {
+                    if (val.ToLower().Contains(value.ToLower()) && !jobsResult.Contains(job))
+                    {
+                        jobsResult.Add(job);
+                    }
+                }
+                
+            }
+            return jobsResult;
+        }
 
         /*
          * Returns a list of all values contained in a given column,
