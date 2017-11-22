@@ -33,7 +33,7 @@ namespace TechJobsConsole
                         jobsResult.Add(job);
                     }
                 }
-                
+
             }
             return jobsResult;
         }
